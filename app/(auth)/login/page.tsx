@@ -1,25 +1,18 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GithubIcon } from 'lucide-react';
+import { auth } from "@/lib/auth";
+import LoginForm from "./_components/LoginForm";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
 
-const Page = () => {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-xl">Welcome Back!</CardTitle>
-        <CardDescription>
-          Login with your Github or Email Account
-        </CardDescription>
-      </CardHeader>
+const Page = async () => {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
-      <CardContent>
-        <Button className="w-full" variant="outline">
-          <GithubIcon className="size-4"/>
-          Sign in with Github
-        </Button>
-      </CardContent>
-    </Card>
-  )
-}
+  if (session) {
+    redirect("/");
+  }
 
-export default Page
+  return <LoginForm />;
+};
+
+export default Page;
