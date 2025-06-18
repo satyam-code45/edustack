@@ -25,7 +25,7 @@ export default function Layout({ children }: Props) {
         {children}
 
         <div className="text-balance text-center text-xs text-muted-foreground">
-          By Clicking Continue, you will agree to our <span className="hover:text-primary hover:underline ">Terms & Condition</span>.
+          By Clicking Continue, you will agree to our <span className="cursor-pointer hover:text-primary hover:underline ">Terms & Condition</span>.
         </div>
       </div>
     </div>
