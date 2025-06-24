@@ -72,6 +72,15 @@ export default function Home() {
             >
               Sign In
             </Link>
+            <Link
+              className={buttonVariants({
+                size: "lg",
+                variant: "outline",
+              })}
+              href="/admin"
+            >
+              Dashboard
+            </Link>
           </div>
         </div>
       </section>
